@@ -1,0 +1,76 @@
+This is analysis of various functions and features used in the development of a calculator in the following repo.
+  https://github.com/hjsong-pknu/calculator
+  
+main()
+This is the entry point of the program. It reads an infix expression from the user, converts it to postfix notation, evaluates the postfix expression, and then prints the result.
+Functionality:
+Input Reading:
+Uses fgets() to read an input expression from the user.
+Conversion and Evaluation:
+Calls toPostfix() to convert the infix expression to postfix notation.
+Calls evaluate() to evaluate the postfix expression and prints the result.
+Variables:
+input: Buffer to store the user input expression.
+Converts an infix expression to a postfix expression using the Shunting Yard algorithm.
+
+infix: Pointer to the input infix expression string.
+postfix: Pointer to the output buffer where the postfix expression will be stored.
+Functionality:
+
+Initialization:
+Creates a stack to hold operators.
+Initializes an empty postfix buffer.
+Token Processing:
+Reads tokens from the infix expression using GetNextToken().
+If the token is an operand, it is added to the postfix expression.
+If the token is an operator, it handles precedence and parentheses using the operator stack.
+Final Output:
+Outputs any remaining operators from the stack to the postfix expression.
+Checks for mismatched parentheses.
+Variables:
+
+buffer: Temporary buffer to format tokens for the postfix expression.
+op_stack: Stack for operators.
+t: Token structure used to process each token.
+parsePostfix()
+Purpose:
+
+Evaluates a postfix expression using a stack-based approach.
+Parameters:
+
+postfix: Pointer to the postfix expression string.
+Functionality:
+
+Token Processing:
+Reads tokens from the postfix expression using GetNextToken().
+Pushes operands onto the operand stack.
+Performs operations when operators are encountered, using the two most recent operands from the stack.
+Operation Execution:
+Supports basic arithmetic operations and modulo, power functions.
+Pushes the result of each operation back onto the stack.
+Variables:
+
+opr_stack: Stack for operands.
+t: Token structure used to process each token.
+a, b, value: Variables for storing operand values and results of operations.
+evaluate()
+Purpose:
+
+A high-level function that combines the conversion of infix to postfix and the evaluation of the postfix expression.
+Parameters:
+
+infix: Pointer to the input infix expression string.
+Functionality:
+
+Conversion:
+Calls toPostfix() to convert the infix expression to postfix notation.
+Evaluation:
+Calls parsePostfix() to evaluate the postfix expression and return the result.
+Variables:
+
+postfix: Buffer to hold the converted postfix expression.
+Summary
+main(): Handles user interaction, input, and output.
+toPostfix(): Converts infix expressions to postfix notation using a stack-based algorithm.
+parsePostfix(): Evaluates postfix expressions using a stack-based approach for arithmetic operations.
+evaluate(): Coordinates the process by combining conversion and evaluation functions.
