@@ -28,49 +28,100 @@ Final Output:
 Outputs any remaining operators from the stack to the postfix expression.
 Checks for mismatched parentheses.
 Variables:
-
-buffer: Temporary buffer to format tokens for the postfix expression.
-op_stack: Stack for operators.
-t: Token structure used to process each token.
-parsePostfix()
+create_stack()
 Purpose:
 
-Evaluates a postfix expression using a stack-based approach.
+Initializes a new stack with a specified initial size.
 Parameters:
 
-postfix: Pointer to the postfix expression string.
+initial_size: The initial number of items the stack can hold.
 Functionality:
 
-Token Processing:
-Reads tokens from the postfix expression using GetNextToken().
-Pushes operands onto the operand stack.
-Performs operations when operators are encountered, using the two most recent operands from the stack.
-Operation Execution:
-Supports basic arithmetic operations and modulo, power functions.
-Pushes the result of each operation back onto the stack.
-Variables:
+Allocates memory for the stack structure and its contents.
+Sets the initial values for top (0) and size.
+Returns:
 
-opr_stack: Stack for operands.
-t: Token structure used to process each token.
-a, b, value: Variables for storing operand values and results of operations.
-evaluate()
+A pointer to the newly created stack.
+make_empty()
 Purpose:
 
-A high-level function that combines the conversion of infix to postfix and the evaluation of the postfix expression.
+Resets the stack, making it empty.
 Parameters:
 
-infix: Pointer to the input infix expression string.
+stack: A pointer to the stack to be emptied.
 Functionality:
 
-Conversion:
-Calls toPostfix() to convert the infix expression to postfix notation.
-Evaluation:
-Calls parsePostfix() to evaluate the postfix expression and return the result.
-Variables:
+Sets the top index to 0, effectively removing all items from the stack.
+is_empty()
+Purpose:
 
-postfix: Buffer to hold the converted postfix expression.
-Summary
-main(): Handles user interaction, input, and output.
-toPostfix(): Converts infix expressions to postfix notation using a stack-based algorithm.
-parsePostfix(): Evaluates postfix expressions using a stack-based approach for arithmetic operations.
-evaluate(): Coordinates the process by combining conversion and evaluation functions.
+Checks if the stack is empty.
+Parameters:
+
+stack: A pointer to the stack to be checked.
+Returns:
+
+true if the stack is empty (top == 0).
+false otherwise.
+is_full()
+Purpose:
+
+Checks if the stack is full.
+Parameters:
+
+stack: A pointer to the stack to be checked.
+Returns:
+
+Always returns false. (This function is incomplete and does not actually check if the stack is full.)
+push()
+Purpose:
+
+Adds an item to the top of the stack.
+Parameters:
+
+stack: A pointer to the stack.
+i: The item to be added to the stack.
+Functionality:
+
+Checks if there is space in the stack. If not, it calls reallocate() to increase the stack size.
+Adds the item to the stack and increments the top index.
+Prints a message indicating the pushed item.
+pop()
+Purpose:
+
+Removes and returns the item at the top of the stack.
+Parameters:
+
+stack: A pointer to the stack.
+Returns:
+
+The item at the top of the stack if the stack is not empty.
+Calls stack_underflow() and exits if the stack is empty.
+Functionality:
+
+Checks if the stack is empty. If so, calls stack_underflow().
+Prints a message indicating the popped item.
+Returns the item at the top and decrements the top index.
+peek()
+Purpose:
+
+Retrieves the item at the top of the stack without removing it.
+Parameters:
+
+stack: A pointer to the stack.
+Returns:
+
+The item at the top of the stack if the stack is not empty.
+Calls stack_underflow() if the stack is empty.
+stack_overflow()
+Purpose:
+
+Handles stack overflow situations.
+Functionality:
+
+Prints an error message and exits the program if the stack cannot accommodate more items.
+stack_underflow()
+Purpose:
+
+Handles stack underflow situations.
+
