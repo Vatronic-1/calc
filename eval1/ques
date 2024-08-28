@@ -1,0 +1,3 @@
+Ques1: Write a Python program to swap comma and dot in a string and to lowercase first n characters in a string and rest in Uppercase. Sample Input: Yes, Real time monitoring, Immediate alerts. N=6 Expected Output: yes. reaL TIME MONITORING. IMMEDIATE ALERTS, 
+
+Ques2: Write a Python program to count the total occurrence of vowels in a given text and display the unique vowels. Sample Input: We are Developers Expected Output: Vowels:7 e, a, 
