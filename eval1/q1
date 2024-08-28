@@ -1,0 +1,21 @@
+def swapfunc(sr,n):
+    new = []
+    for i in range(len(sr)):
+        if sr[i] == ',':
+            sr[i] = '.'
+        elif sr[i] == '.':
+            sr[i] == ','
+    print(sr)        
+    for i in sr[:n]:
+        new.append(i.lower())    
+    for i in sr[n:]:
+        new.append(i.upper())    
+    return new
+
+z = list(input("enter a string "))
+print(z)
+n = int(input("enter value of n"))
+result = swapfunc(z,n)
+print(result)
+result = ''.join(result)
+print(result)
