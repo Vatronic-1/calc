@@ -1,0 +1,13 @@
+z = list(input("enter string").strip())
+vowel = ['a','e','i','o','u']
+counter = 0
+strvowel =[]
+for i in z:
+    if i in vowel:
+        counter += 1
+        strvowel.append(i)
+    else:
+        pass
+    
+result = set(strvowel)        
+print(f"no of vowels {counter} and vowels are {result}")
